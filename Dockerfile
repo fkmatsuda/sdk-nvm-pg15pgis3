@@ -54,7 +54,8 @@ COPY postgres/pg_hba.conf /pg_hba.conf
 COPY postgres/pginit.sql /pginit.sql
 COPY postgres/init_db.sh /init_db.sh
 COPY dev/init_dev.sh /init_dev.sh
-COPY common/init_all.sh /init_all.sh
+COPY dev/init_java.sh /init_java.sh
+COPY dev/init_node.sh /init_node.sh
 
 ENV MAVEN_HOME=/root/.sdkman/candidates/maven/current
 ENV JAVA_HOME=/root/.sdkman/candidates/java/current
