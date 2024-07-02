@@ -59,7 +59,7 @@ COPY dev/init_node.sh /init_node.sh
 
 ENV MAVEN_HOME=/root/.sdkman/candidates/maven/current
 ENV JAVA_HOME=/root/.sdkman/candidates/java/current
-ENV NODE_HOME=$NVM_DIR/versions/node/$NODE_VERSION
+ENV NODE_HOME=/usr/local/node/current
 
 ENV PATH=$MAVEN_HOME/bin:$JAVA_HOME/bin:$NODE_HOME/bin:$NVM_DIR:$PATH
 
