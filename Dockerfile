@@ -62,6 +62,3 @@ ENV NODE_HOME=$NVM_DIR/versions/node/$NODE_VERSION
 
 ENV PATH=$MAVEN_HOME/bin:$JAVA_HOME/bin:$NODE_HOME/bin:$NVM_DIR:$PATH
 
-ENTRYPOINT [ "/init_all.sh" ]
-
-CMD [ "echo", "Ready!" ]
