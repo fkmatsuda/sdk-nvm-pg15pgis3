@@ -11,3 +11,7 @@ CREATE EXTENSION postgis_sfcgal;
 CREATE EXTENSION fuzzystrmatch;
 -- unaccent
 CREATE EXTENSION unaccent;
+-- Enable PL/Python3U
+CREATE EXTENSION plpython3u;
+-- Enable PL/Perl
+CREATE EXTENSION plperl;

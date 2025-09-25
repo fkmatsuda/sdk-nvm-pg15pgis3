@@ -29,12 +29,13 @@ RUN apt-get update && apt-get -y upgrade && \
     apt-get install -y curl wget gnupg2 lsb-release ca-certificates git build-essential zip unzip libasound2 libxi6 libxtst6 apt-utils p7zip-full libfontconfig1 libxrender1 gnupg2 lsb-release s4cmd openssh-client
 
 # Adicionando o repositório oficial do PostgreSQL
-RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add - && \
+RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg && \
     echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list
 
 # Atualizar lista de pacotes com o novo repositório e instalar PostgreSQL e PostGIS
 RUN apt-get update && \
-    apt-get install -y --install-recommends postgresql-${POSTGRES_VERSION} postgresql-${POSTGRES_VERSION}-postgis-${POSTGIS_VERSION}
+    apt-get install -y --install-recommends postgresql-${POSTGRES_VERSION} postgresql-${POSTGRES_VERSION}-postgis-${POSTGIS_VERSION} \
+    postgresql-contrib-${POSTGRES_VERSION} postgresql-plpython3-${POSTGRES_VERSION} postgresql-plperl-${POSTGRES_VERSION}
 
 # Instalar SDKMAN, Java e Maven
 RUN curl -s "https://get.sdkman.io" | bash
